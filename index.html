@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+        integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+
+    <title>Avatar Generator</title>
+</head>
+
+<body class="bg-dark">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
+                <h2 class="h2 text-light">Avatar Generator</h2>
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <input class="form-control" type="text" name="name" id="name" placeholder="enter name..." value="example">
+                        <button class="btn btn-secondary mt-2" id="submit">Generate</button>
+                    </div>
+                    <div class="card-body" id="avatar">
+                        <img src="https://avatars.abstractapi.com/v1/?api_key=dbc3fbae727540f78388aa00711c2740&name=example" class="img-thumbnail rounded-circle shadow" alt="avatar">
+                    </div>
+                    <div class="card-footer">
+                        Using <a href="https://www.abstractapi.com/" target="_blank">abstractapi.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper.js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"
+        integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous">
+    </script>
+
+    <script>
+        const avatar = document.getElementById("avatar");
+
+        button = document.getElementById("submit");
+        button.addEventListener("click", function() {
+            let value = document.getElementById("name").value;
+
+            avatar.insertAdjacentHTML('beforeend', `
+                <img src="https://avatars.abstractapi.com/v1/?api_key=dbc3fbae727540f78388aa00711c2740&name=${value}" class="img-thumbnail rounded-circle shadow" alt="avatar">
+            `);
+        });
+    </script>
+</body>
+
+</html>
